@@ -11,8 +11,10 @@
 
 <body>
     <div id="app">
+        <p v-html="HTML_code"></p>
         <p v-once>{{content}} - {{show()}}</p>
         <a v-bind:href="link">My facebook profile</a>
+        
     </div>
 
 
@@ -23,7 +25,8 @@
             el: "#app",
             data: {
                 content: "This is the first Vue component!",
-                link: 'https://www.fb.com/nguyenphiikhanh'
+                link: 'https://www.fb.com/nguyenphiikhanh',
+                HTML_code: "<a href='./vue.js'>Go to Vue</a>",
             },
             methods: {
                 show(){
