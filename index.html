@@ -11,7 +11,7 @@
 
 <body>
     <div id="app">
-        <p>{{ content }}</p>
+        <p v-once>{{content}} - {{show()}}</p>
         <a v-bind:href="link">My facebook profile</a>
     </div>
 
@@ -25,8 +25,11 @@
                 content: "This is the first Vue component!",
                 link: 'https://www.fb.com/nguyenphiikhanh'
             },
-            method: {
-
+            methods: {
+                show(){
+                    this.content = "Content update!"
+                    return this.content
+                }
             },
         })
     </script>
