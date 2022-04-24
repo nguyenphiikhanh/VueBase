@@ -11,13 +11,11 @@
 
 <body>
     <div id="app">
-        <div v-on:mouseover="mouseOn">
-            <h2>Click to increment value</h2>
-            <button v-on:click="countIncrement">Click</button>
-            <p>Value: {{count}}</p>
-            <p>Mouse is on {{x}}/{{y}}</p>
-            <p v-on:mouseover="stopMouseOn">Stop show MouseOn</p>
-            <p v-on:mouseover.stop="">Stop show MouseOn</p>
+        <div>
+            <p>{{tangA}}</p>
+            <p>{{tangB}}</p>
+            <button @click="a++">Tang a</button>
+            <button @click="b++">Tang b</button>
         </div>
     </div>
 
@@ -28,21 +26,21 @@
         new Vue({
             el: "#app",
             data: {
-                count: 0,
-                x: 0,
-                y: 0,
+                a: 0,
+                b: 0
+            },
+            computed:{
+                tangA(){
+                    console.log('tang a');
+                    return this.a
+                },
+                tangB(){
+                    console.log('tang b');
+                    return this.b
+                }
             },
             methods: {
-                countIncrement() {
-                    this.count++
-                },
-                mouseOn(event) {
-                    this.x = event.offsetX;
-                    this.y = event.offsetY
-                },
-                stopMouseOn(event){
-                    event.stopPropagation // stop mouseOn event
-                }
+                
             },
         })
     </script>
